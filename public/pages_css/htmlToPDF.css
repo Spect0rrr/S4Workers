@@ -1,0 +1,37 @@
+.right_up {
+    display: flex;
+    position: relative;
+    text-align: left;
+    flex-direction: column;
+    margin-left: 60%;
+}
+
+.right_up p {
+    margin: 1vh;
+}
+
+.main_info {
+    display: flex;
+    position: relative;
+    text-align: center;
+    flex-direction: column;
+}
+
+.main_info p {
+    margin: 1vh;
+}
+
+.table th, .table tr{
+    border: 1px solid #000000;
+}
+
+.table th:nth-child(1), .table td:nth-child(1) { width: 3%; }   
+.table th:nth-child(2), .table td:nth-child(2) { width: 30%; }
+.table th:nth-child(3), .table td:nth-child(3) { width: 12%; } 
+.table th:nth-child(4), .table td:nth-child(4) { width: 6%; }   
+.table th:nth-child(5), .table td:nth-child(5) { width: 6%; }  
+.table th:nth-child(6), .table td:nth-child(6) { width: 6%; }   
+.table th:nth-child(7), .table td:nth-child(7) { width: 6%; }  
+.table th:nth-child(8), .table td:nth-child(8) { width: 6%; }   
+.table th:nth-child(9), .table td:nth-child(9) { width: 20%; }  
+.table th:nth-child(10), .table td:nth-child(10) { width: 10%; } 

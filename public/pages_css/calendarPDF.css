@@ -1,0 +1,248 @@
+body {
+    background: rgb(239, 248, 255);
+    overflow: hidden;
+}
+
+.logo {
+    width: 60%;
+    position: relative;
+    text-align: center;
+}
+
+aside {
+    float: left;
+    background: rgba(245, 245, 245, 0.733);
+    width: 20%;
+    padding: 2.5%;
+    height: 100vh;
+    color: black;
+    border-right: 5px solid #4d4d4d;
+    z-index: 1;
+}
+
+aside .logo-text {
+    font-size: 200%;
+    margin-left: 15px;
+    font-weight: bold;
+    position: relative;
+    top: 4%;
+    font-family: 'MyFont', sans-serif;
+}
+
+aside h3 {
+    margin-top: 14vh;
+    font-size: 3vh;
+    z-index: 1;
+}
+
+aside ul {
+    list-style: none;
+    text-decoration: none;
+    z-index: 1;
+}
+
+aside ul li {
+    color: black;
+    display: block;
+    margin-top: 20px;
+    font-size: 2vh;
+    transition: transform .6s ease;
+}
+
+aside ul li:hover, aside ul a:hover {
+    color: rgb(107, 5, 5);
+    text-decoration: none;
+    transform: scale(1.05);
+}
+
+aside .navigation-img {
+    position: relative;
+    height: 2.2vh;
+    padding-right: 4px;
+    padding-top: -1vh;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+@font-face {
+    font-family: 'MyFont';
+    src: url('../forStyles/fonts/Alegreyascmedium.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+main {
+    display: flex;
+    width: 80%
+}
+
+
+
+.calendar-container {
+    display: flex;
+    margin: 0 auto;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.befor-calendar-pos {
+    flex-direction: column;
+    position: relative;
+    text-align: center;
+    padding-top: 18vh;
+    max-width: 35vw;
+    padding-left: 6vw;
+    padding-right: 4vw;
+}
+
+.calendar-informing {
+    font-size: 150%;
+    font-family: 'MyFont', sans-serif;
+    align-items: center;
+    justify-content: center;
+}
+
+.month-select {
+    background-color: rgb(243, 254, 255);
+    width: 10vw;
+    height: 4vh;
+    border-radius: 18px;
+    padding-left: 1%;
+    font-family: 'MyFont', sans-serif;
+    font-size: 120%;
+    text-align: center;
+}
+
+.year-select {
+    background-color: rgb(243, 254, 255);
+    width: 10vw;
+    height: 4vh;
+    border-radius: 18px;
+    padding-left: 1%;
+    font-family: 'MyFont', sans-serif;
+    font-size: 120%;
+    text-align: center;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    padding-top: 3vh;
+}
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    background: #f4f4f4;
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 400px;
+    width: 100%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    margin-left: 5vw;
+    margin-top: 7vh;
+}
+
+.day-of-week {
+    font-weight: bold;
+    text-align: center;
+    padding: 5px;
+    background: #ddd;
+    border-radius: 5px;
+    grid-row: 1;
+}
+
+
+.week-row {
+    display: contents;
+}
+
+.week-number {
+    font-weight: bold;
+    text-align: center;
+    background: #57c1ff;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+    grid-column: span 7;
+}
+
+.week-number:hover {
+    background: #5100ff;
+}
+
+.day, .empty {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.day {
+    background: white;
+    border: 1px solid #ccc;
+}
+
+.day:hover {
+    background: #e0e0e0;
+}
+
+.weekend {
+    background: #ffcccc;
+}
+
+.selected {
+    background: #007bff;
+    color: white;
+    font-weight: bold;
+}
+
+.clear-button {
+    margin-top: 10px;
+    padding: 10px;
+    background: #4d7cff;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.6s ease;
+}
+
+.clear-button:hover {
+    background: #3000cc;
+    transform: scale(1.05);
+}
+
+.accept-button {
+    margin-top: 10px;
+    padding: 10px;
+    background: #4d7cff;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.6s ease;
+}
+
+.accept-button:hover {
+    background: #3000cc;
+    transform: scale(1.05);
+}
+
+.accept-button-pos {
+    position: relative;
+    margin-left: 15vw;
+}
+
+.footer-pos {
+    position: absolute;
+    bottom: 35%;
+    
+}

@@ -1,0 +1,244 @@
+body {
+    background: rgb(239, 248, 255);
+    overflow: hidden;
+}
+
+.logo {
+    width: 60%;
+    position: relative;
+    text-align: center;
+}
+
+aside {
+    float: left;
+    background: rgba(245, 245, 245, 0.733);
+    width: 20%;
+    padding: 2.5%;
+    height: 100vh;
+    color: black;
+    border-right: 5px solid #4d4d4d;
+    z-index: 1;
+}
+
+aside .logo-text {
+    font-size: 200%;
+    margin-left: 15px;
+    font-weight: bold;
+    position: relative;
+    top: 4%;
+    font-family: 'MyFont', sans-serif;
+}
+
+aside h3 {
+    margin-top: 14vh;
+    font-size: 3vh;
+    z-index: 1;
+}
+
+aside ul {
+    list-style: none;
+    text-decoration: none;
+    z-index: 1;
+}
+
+aside ul li {
+    color: black;
+    display: block;
+    margin-top: 20px;
+    font-size: 2vh;
+    transition: transform .6s ease;
+}
+
+aside ul li:hover, aside ul a:hover {
+    color: rgb(107, 5, 5);
+    text-decoration: none;
+    transform: scale(1.05);
+}
+
+aside .navigation-img {
+    position: relative;
+    height: 2.2vh;
+    padding-right: 4px;
+    padding-top: -1vh;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+@font-face {
+    font-family: 'MyFont';
+    src: url('../forStyles/fonts/Alegreyascmedium.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+main {
+    display: flex;
+    width: 80%
+}
+
+
+
+main .first-title {
+    position: relative;
+    text-align: center;
+    font-family: 'MyFont', sans-serif;
+    font-size: 7vh;
+    padding-top: 12%;
+}
+
+main .second-title {
+    position: relative;
+    text-align: center;
+    font-family: 'MyFont', sans-serif;
+    font-size: 5vh;
+    padding-bottom: 2%;
+}
+
+main {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center;
+    padding-top: 15vh;
+}
+
+body {
+    overflow-x:hidden;
+}
+
+main .main-text {
+    position: relative;
+    text-align: center;
+    font-family: 'MyFont', sans-serif;
+    font-size: 6vh;
+    padding-top: 7%;
+}
+
+
+main .enter-works-title {
+    font-size: 115%;
+    font-family: 'MyFont', sans-serif;
+}
+
+table {
+    display: flex;
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    font-family: 'MyFont', sans-serif;
+    font-size: 115%;
+    justify-content: center;
+}
+
+th, td {
+    padding-left: 2vw;
+    padding-right: 2vw;
+    padding-top: 1vh;
+}
+
+button {
+    padding: 5px 10px;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+main .check-table-pos {
+    position: relative;
+    padding-bottom: 1.5vh;
+    padding-top: 1.5vh;
+}
+
+.check-table, .create-pdf-button, .add-button {
+    border-radius: 8px;
+    font-family: 'MyFont', sans-serif;
+}
+
+.add-button-pos {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 4vh;
+    padding-bottom: 2vh;
+}
+
+.rr {
+    padding-bottom: 1.5vh;
+    padding-top: 1.5vh;
+}
+
+main .first-title {
+    position: relative;
+    text-align: center;
+    font-family: 'MyFont', sans-serif;
+    font-size: 6vh;
+    padding-top: 7%;
+}
+
+main .second-title {
+    position: relative;
+    text-align: center;
+    font-family: 'MyFont', sans-serif;
+    font-size: 4vh;
+    padding-bottom: 2%;
+}
+
+main .main-div {
+    position: relative;
+    text-align: center;
+    z-index: 0;
+}
+
+main .pdf-button, .add-info-button {
+    position: relative;
+    width: 12vw;
+    height: 5vh;
+    border: none;
+    background-color: #1C4FD1;
+    border-radius: 25px;
+    color: white;
+    font-family: 'MyFont', sans-serif;
+    font-size: 3vh;
+    transition: transform 0.6s ease;
+    margin: 1.5%;
+}
+
+main .pdf-button:hover, .add-info-button:hover {
+    transform: scale(1.05);
+}
+
+.content-selecting, .subcontent-selecting {
+    background-color: rgb(243, 254, 255);
+    width: 24vw;
+    height: 5vh;
+    border-radius: 18px;
+    padding-left: 1%;
+    font-family: 'MyFont', sans-serif;
+    font-size: 120%;
+    text-align: center;
+}
+
+.time-select-start, .time-select-end {
+    background-color: rgb(243, 254, 255);
+    width: 11vw;
+    height: 5vh;
+    border-radius: 18px;
+    padding-left: 1%;
+    font-family: 'MyFont', sans-serif;
+    font-size: 120%;
+    text-align: center;
+}
+
+.table {
+    text-align: center;
+}
+

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First page</title>
+
+    <link rel="stylesheet" href="public/pages_css/indexx.css">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="public/forStyles/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="public/forStyles/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="public/forStyles/favicons/favicon-16x16.png">
+    <link rel="manifest" href="public/forStyles/favicons/site.webmanifest">
+    <link rel="mask-icon" href="public/forStyles/favicons/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#3f40b6">
+    <meta name="theme-color" content="#8080be">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+
+</head>
+<body>
+    <!-- <script src="public/js/switch_page.js"></script> -->
+    <script src="js/switch_page.js"></script>
+    <script src="js/bd_functions.js"></script>
+    <aside>
+        <img src="public/forStyles/img/russia.png" alt="Лого" class="logo">
+        <span class="logo-text">S4Workers</span>
+        <h3>Навигация</h3>
+        <ul>
+            <a href="#"  onclick="goToAutentificationFirst()"><li><img src="public/forStyles/icons/house.svg" class="navigation-img">Стартовая страница</li></a>
+        </ul>
+    </aside>
+
+    <main>
+        <div class="general-page">
+            <p class="first-title">Главная страница</p>
+            <p class="second-title">Введите логин и пароль для аутентификации</p>
+            <form onsubmit="event.preventDefault(); goToMainPanel();" id="auth">
+                <div class="log">
+                    <label class="log_text">Логин:</label>
+                    <input type="text" class="login" name="login" id="login">
+                </div>
+                <div class="pas">
+                    <label class="pas_text">Пароль:</label>
+                    <input type="password" class="password" name="pas" id="pas">
+                </div>
+                <button type="button" class="vxod" onclick="auth()">Вход</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

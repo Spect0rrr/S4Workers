@@ -1,0 +1,221 @@
+body {
+    background: rgb(239, 248, 255);
+    overflow: hidden;
+}
+
+.logo {
+    width: 60%;
+    position: relative;
+    text-align: center;
+}
+
+aside {
+    float: left;
+    background: rgba(245, 245, 245, 0.733);
+    width: 20%;
+    padding: 2.5%;
+    height: 100vh;
+    color: black;
+    border-right: 5px solid #4d4d4d;
+    z-index: 1;
+}
+
+aside .logo-text {
+    font-size: 200%;
+    margin-left: 15px;
+    font-weight: bold;
+    position: relative;
+    top: 4%;
+    font-family: 'MyFont', sans-serif;
+}
+
+aside h3 {
+    margin-top: 14vh;
+    font-size: 3vh;
+    z-index: 1;
+}
+
+aside ul {
+    list-style: none;
+    text-decoration: none;
+    z-index: 1;
+}
+
+aside ul li {
+    color: black;
+    display: block;
+    margin-top: 20px;
+    font-size: 2vh;
+    transition: transform .6s ease;
+}
+
+aside ul li:hover, aside ul a:hover {
+    color: rgb(107, 5, 5);
+    text-decoration: none;
+    transform: scale(1.05);
+}
+
+aside .navigation-img {
+    position: relative;
+    height: 2.2vh;
+    padding-right: 4px;
+    padding-top: -1vh;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+@font-face {
+    font-family: 'MyFont';
+    src: url('../forStyles/fonts/Alegreyascmedium.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+main {
+    display: flex;
+    width: 80%
+}
+
+
+
+main .first-title {
+    position: relative;
+    text-align: center;
+    font-family: 'MyFont', sans-serif;
+    font-size: 7vh;
+    padding-top: 12%;
+}
+
+main .second-title {
+    position: relative;
+    text-align: center;
+    font-family: 'MyFont', sans-serif;
+    font-size: 5vh;
+    padding-bottom: 2%;
+}
+
+main {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center;
+    padding-top: 15vh;
+}
+
+body {
+    overflow-x:hidden;
+}
+
+main .main-text {
+    position: relative;
+    text-align: center;
+    font-family: 'MyFont', sans-serif;
+    font-size: 6vh;
+    padding-top: 7%;
+}
+
+.work-name-text, .details-text {
+    font-family: 'MyFont', sans-serif;
+    font-size: 3vh;
+    padding-right: 1vw;
+}
+
+.fio_label {
+    font-family: 'MyFont', sans-serif;
+    font-size: 3vh;
+    padding-right: 0.8vw;
+    padding-left: 1vw;
+    padding-bottom: 1vh;
+}
+
+.details-pos {
+    padding-left: 2vw;
+    padding-top: 2vh;
+}
+
+.work-name, .fio_input {
+    background-color: rgb(243, 254, 255);
+    width: 23vw;
+    height: 4vh;
+    border-radius: 18px;
+    padding-left: 1%;
+    font-family: 'MyFont', sans-serif;
+    font-size: 120%;
+}
+
+.accept-button-pos {
+    display: flex;
+    justify-content: center;
+}
+
+.accept-button {
+    position: relative;
+    width: 13vw;
+    height: 5vh;
+    border: none;
+    background-color: #1C4FD1;
+    border-radius: 25px;
+    color: white;
+    font-family: 'MyFont', sans-serif;
+    font-size: 2.5vh;
+    transition: transform 0.6s ease;
+    /* margin-left: 19vw; */
+    margin-top: 4vh;
+    overflow-y: auto;
+}
+
+.accept-button:hover {
+    transform: scale(1.05);
+}
+
+.i-button {
+    position: relative;
+    width: 3vw;
+    height: 4vh;
+    border: none;
+    background-color: #1C4FD1;
+    border-radius: 25px;
+    color: white;
+    font-family: 'MyFont', sans-serif;
+    font-size: 2.5vh;
+    transition: transform 0.6s ease;
+    /* margin-left: 19vw; */
+    margin-left: 1vw;
+    margin-top: 4vh;
+    overflow-y: auto;
+}
+
+.i-button:hover {
+    transform: scale(1.05);
+}
+
+
+
+textarea {
+    width: 100%; /* Фиксированная ширина */
+    max-width: 23vw; /* Максимальная ширина, если нужно */
+    min-height: 4vh; /* Минимальная высота */
+    resize: none; /* Убираем возможность изменения размера вручную */
+    padding: 10px;
+    font-size: 120%;
+    box-sizing: border-box; /* Учитываем отступы и границы */
+    font-size: 16px;
+    line-height: 1.5; /* Задаём стандартный межстрочный интервал */
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding-right: 5vw;
+}
+
+.details-pos {
+    display: flex;
+    align-items: center; 
+    gap: 10px;
+}
+
+.details {
+    flex-grow: 1;
+    font-family: 'MyFont', sans-serif;
+    background-color: rgb(243, 254, 255);
+}

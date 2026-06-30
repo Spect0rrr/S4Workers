@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter works page</title>
+
+    <link rel="stylesheet" href="../public/pages_css/enterWorks.css">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../public/forStyles/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../public/forStyles/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../public/forStyles/favicons/favicon-16x16.png">
+    <link rel="manifest" href="../public/forStyles/favicons/site.webmanifest">
+    <link rel="mask-icon" href="../public/forStyles/favicons/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#3f40b6">
+    <meta name="theme-color" content="#8080be">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+
+</head>
+<body>
+    <script src="../js/switch_page.js"></script>
+    <script src="../js/bd_functions.js"></script>
+    <!-- <script src="../js/pdf_creating.js"></script> zabit xui-->
+    <aside>
+        <img src="../public/forStyles/img/russia.png" alt="Лого" class="logo">
+        <span class="logo-text">S4Workers</span>
+        <h3>Навигация</h3>
+        <ul>
+            <a href="#" onclick="goToAutentificationAside()"><li><img src="../public/forStyles/icons/house.svg" class="navigation-img">Стартовая страница</li></a>
+            <a href="#" onclick="goToMainPanel()"><li><img src="../public/forStyles/icons/bar-chart-steps.svg" class="navigation-img">Панель администратора</li></a>
+            <a href="#" onclick="goToEnterWorksAside()"><li><img src="../public/forStyles/icons/filetype-pdf.svg" class="navigation-img">PDF</li></a> 
+            <a href="#" onclick="goToAddNewUser()"><li><img src="../public/forStyles/icons/person-plus.svg" class="navigation-img">Добавить сотрудника</li></a> 
+            <a href="#" onclick="goToDeleteUser()"><li><img src="../public/forStyles/icons/person-dash.svg" class="navigation-img">Удалить сотрудника</li></a> 
+            <a href="#" onclick="goToChangePassword()"><li><img src="../public/forStyles/icons/person-down.svg" class="navigation-img">Изменить пароль</li></a>
+            <a href="#" onclick="goToAddNewWorks()"><li><img src="../public/forStyles/icons/person-gear.svg" class="navigation-img">Новые работы</li></a>
+            <a href="#" onclick="goToDeleteWorks()"><li><img src="../public/forStyles/icons/trash.svg" class="navigation-img">Удаление работ</li></a>
+        </ul>
+    </aside>
+
+    <main>
+        <p class="main-text">Введите требуемые данные</p>
+        <form>
+            <table class="table">
+                <tr>
+                    <th><label for="content-select">Работа</label></th>
+                    <th><label for="subcontent-select">Подробности</label></th>
+                </tr>
+                <tr>
+                    <th><select id="content_select" name="selected_content" class="content-selecting">
+                        <option>Работа</option>
+                    </select></th>
+                    <th><select id="subcontent_select" name="selected_subcontent" class="subcontent-selecting">
+                        <option>Подробности</option>
+                    </select></th>
+                </tr>
+                <tr>
+                    <th><label for="time-select-start">Начальное время</label></th>
+                    <th><label for="time-select-end">Конечное время</label></th>
+                </tr>
+                <tr>
+                    <th><input type="time" id="time_select_start" name="selected_time_start" class="time-select-start"></th>
+                    <th><input type="time" id="time_select_end" name="selected_time_end"  class="time-select-end"></th>
+                </tr>
+            </table>
+            <div class="add-button-pos">
+                <button type="button" class="add-button" onclick="addWorkToPDF()">Выбрать дни под текущую работу</button>
+            </div>
+            <!-- ; goToCalendarPDF() -->
+        </form>
+        <form>
+            <div class="check-table-pos">
+                <button class="check-table" type="button" onclick="goToCheckingAddedWorks()">Добавленное</button>
+            </div>
+        </form>
+        <form>
+            <div class="rr">
+                <input type="hidden" name="selected_days" id="selected_days">
+                <button class="create-pdf-button" type="button" id="createPDFButton" onclick="createPDFFromHTML()">Создать PDF</button>
+            </div>
+        </form>
+    </main>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        loadContentToSelect('content_select');
+    });
+    document.addEventListener('DOMContentLoaded', function() {
+        loadSubcontentToSelect('subcontent_select');
+    });
+    document.getElementById('content_select').addEventListener('change', function() {
+        const selected_content = this.value;
+    });
+    </script>
+    <script>
+    async function eventSubcontent() {
+        let selected_content = document.getElementById('content_select');
+        const response = await fetch(`http://localhost:5000/api/works/select_content_update`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                selected_content: selected_content
+            })
+        });
+        const result = await response.json();
+    };
+
+    async function createPDFFromHTML() {
+        try {
+            const works = JSON.parse(localStorage.getItem('wokrsMas') || '[]');
+            const selectedDays = JSON.parse(localStorage.getItem('selectedDays') || '[]');
+            const laboratory = localStorage.getItem('laboratory');
+            const department = localStorage.getItem('department');
+            const management = localStorage.getItem('management');
+            const calendarMonth = localStorage.getItem('calendarMonth');
+            const calendarYear = localStorage.getItem('calendarYear');
+            const job_title = localStorage.getItem('job_title');
+            const currentUser = localStorage.getItem('currentUser');
+            const monthWeeks = JSON.parse(localStorage.getItem('monthWeeks') || '[]');
+            const allDatesForWorks = JSON.parse(localStorage.getItem('allDatesForWorks') || '[]');
+            
+            if (works.length === 0) {
+                alert('Нет добавленных работ для создания PDF');
+                return;
+            }
+            
+            const button = document.getElementById('createPDFButton');
+            const originalText = button.textContent;
+            button.textContent = 'Создание...';
+            button.disabled = true;
+            
+            const response = await fetch(`http://localhost:5000/api/pdf`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    works: works,
+                    selectedDays: selectedDays,
+                    laboratory: laboratory,
+                    department: department,
+                    management: management,
+                    calendarMonth: calendarMonth,
+                    calendarYear: calendarYear,
+                    job_title: job_title,
+                    currentUser: currentUser,
+                    monthWeeks: monthWeeks,
+                    allDatesForWorks: allDatesForWorks
+                })
+            });
+
+            if (monthWeeks.length === 0) {
+                throw new Error('Нет данных о неделях. Сначала выберите месяц и год.');
+            }
+            
+            if (!response.ok) {
+
+                const errorData = await response.json();
+                throw new Error(errorData.error || 'Ошибка сервера');
+            }
+            
+            const blob = await response.blob();
+            downloadPDF(blob, 'work_plan.pdf');
+            
+            button.textContent = originalText;
+            button.disabled = false;
+            
+            showNotification('PDF успешно создан!', 'success');
+            
+        } catch (error) {
+            console.error('Ошибка:', error);
+            showNotification(`Ошибка при создании PDF: ${error.message}`, 'error');
+            
+            const button = document.getElementById('createPDFButton');
+            button.textContent = 'Создать';
+            button.disabled = false;
+        }
+    }
+
+    function downloadPDF(blob, filename) {
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        window.URL.revokeObjectURL(url);
+    }
+
+    function formatTime(timeString) {
+        return timeString.substring(0, 5); 
+    }
+
+    function clearWorkForm() {
+        document.getElementById('content_select').value = 'Работа';
+        document.getElementById('subcontent_select').value = 'Подробности';
+        document.getElementById('time_select_start').value = 'Начальное время';
+        document.getElementById('time_select_end').value = 'Конечное время';
+    }
+
+    function showNotification(message, type = 'info') {
+        alert(`${type.toUpperCase()}: ${message}`);
+    }
+
+    function goToCheckingAddedWorks() {
+        const works = JSON.parse(localStorage.getItem('wokrsMas') || '[]');
+        
+        if (works.length === 0) {
+            showNotification('Нет добавленных работ', 'info');
+            return;
+        }
+        
+        let message = 'Добавленные работы:\n\n';
+        works.forEach((work, index) => {
+            message += `${index + 1}. ${work.name}\n   Время: ${work.time}\n\n`;
+        });
+        
+        const modal = document.createElement('div');
+        modal.style.cssText = `
+            position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            background: white; padding: 20px; border: 2px solid #333; z-index: 1000;
+            max-width: 500px; max-height: 400px; overflow-y: auto;
+        `;
+        modal.innerHTML = `
+            <h3>Добавленные работы</h3>
+            <pre>${message}</pre>
+            <button onclick="this.parentElement.remove()">Закрыть</button>
+            <button onclick="clearAllWorks()">Очистить все</button>
+        `;
+        document.body.appendChild(modal);
+    }
+
+    function clearAllWorks() {
+        localStorage.removeItem('worksMas');
+        showNotification('Все работы очищены', 'info');
+        document.querySelector('div[style*="position: fixed"]')?.remove();
+    }
+    </script>
+</body>
+</html>
