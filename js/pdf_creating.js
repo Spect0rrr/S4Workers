@@ -65,12 +65,12 @@ async function createPDFFromHTML(data = {}) {
                 <p>Экземпляр единственный</p>
                 <p>vvvv начальника vv отдела</p>
                 <p>v управления (vvvvvvvvvvv)</p>
-                <p>майор V.Vvvvvvvv</p>
+                <p>vvvv V.Vvvvvvvv</p>
                 <p>03.06.2004</p>
             </div>
             <div class="main_info">
                 <p><strong>ПЛАН РАБОТЫ</strong></p>
-                <p>научного сотрудника 631 лаборатории 63 отдела 6 управления</p>
+                <p>научного сотрудника vvvv лаборатории vvv отдела vvvv управления</p>
                 <p>на октябрь 2024 года</p>
                 <table class="table">
                     <tr>
